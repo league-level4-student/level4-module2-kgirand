@@ -32,12 +32,21 @@ public class StringMethods {
 
 	// Given Strings s1 and s2, return the longer String
 	public static String longerString(String s1, String s2) {
-		return null;
+		if(s1.length()>s2.length()) {
+			return s1;
+		}else {
+			return s2;
+		}
 	}
 
 	
 	// if String s contains the word "underscores", change all of the spaces to underscores
 	public static String formatSpaces(String s) {
+		System.out.println(s);
+		if(s.contains("underscores")) {
+			s.replace(" ", "_");
+			System.out.println(s);
+		}
 		return null;
 	}
 
