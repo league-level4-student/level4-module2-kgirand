@@ -1,7 +1,10 @@
 package StringMethods;
 
+import java.awt.RenderingHints.Key;
 import java.util.Arrays;
 import java.util.Base64;
+
+import javax.xml.stream.events.Characters;
 
 /*
 Visit the JavaDocs for the String class to view everything you can do with a String.  
@@ -32,6 +35,7 @@ public class StringMethods {
 
 	// Given Strings s1 and s2, return the longer String
 	public static String longerString(String s1, String s2) {
+		System.out.println(s1.length());
 		if(s1.length()>s2.length()) {
 			return s1;
 		}else {
@@ -42,12 +46,20 @@ public class StringMethods {
 	
 	// if String s contains the word "underscores", change all of the spaces to underscores
 	public static String formatSpaces(String s) {
-		System.out.println(s);
-		if(s.contains("underscores")) {
-			s.replace(" ", "_");
+		char under = '_';
+		char space = ' '; 
+		if(s.contains("underscores")==true) {
 			System.out.println(s);
+			for(int i = 0; i < s.length(); i++) {
+				if(s.charAt(i)==space) {
+					s = s.replace(space, under);
+				}
+			}
+			return s;
+		}else {
+			return s;
 		}
-		return null;
+		
 	}
 
 	
@@ -55,13 +67,55 @@ public class StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
+	char space = ' ';
+	for(int i = 0; i<=s1.length(); i++) {
+		if(i<=s1.length() && i!=space) {
+			if(i)
+		}
+	}
+	
+		
+		
+		
+		
+	
+	//	for(int i = 0; i <= s1.length(); i++) {
+	//		if(i<=s1.length() && s1.charAt(i+1)!=space){
+	//			s1.replace(" ", "");
+	//		}
+	//	}
+	//	for(int i = 0; i <= s2.length(); i++) {
+	//		if(i<=s2.length() && s2.charAt(i+1)!=space){
+	//			s2.replace(" ", "");
+	//		}
+	//	}
+	//	for(int i = 0; i <= s3.length(); i++) {
+	//		if(i<=s3.length() && s3.charAt(i+1)!=space){
+	//			s3.replace(" ", "");
+	//		}
+	//	}
+	//	System.out.println(s1);
+	//	System.out.println(s2);
+	//	System.out.println(s3);
 		return null;
 	}
 	
 	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		return 0;
+		char[] str = s.toCharArray();
+		
+		for(int i = 0; i < s.length(); i++) {
+			str[i] = s.charAt(i);
+		}
+		for(int i = 0; i < s.length(); i++) {
+			if(str[i].isDigit()) {
+				int num = 0; 
+				num += s.charAt(i);
+			}
+		}
+		
+		return s.length();
 	}
 	
 	
@@ -72,11 +126,13 @@ public class StringMethods {
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
+		
 		return null;
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
+		
 		return null;
 	}
 
