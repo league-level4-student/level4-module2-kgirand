@@ -67,66 +67,80 @@ public class StringMethods {
 	// You cannot assume there are no extra spaces around the name, but you can
 	// assume there is only one space between the first and last name
 	public static String lineLeader(String s1, String s2, String s3) {
-	char space = ' ';
-	for(int i = 0; i<=s1.length(); i++) {
-		if(i<=s1.length() && i!=space) {
-			if(i)
+		char letter1 = ' ';
+		char letter2 = ' ';
+		char letter3 = ' ';
+		for(int i = 0; i < s1.length()-2; i++) {
+			if(s1.charAt(i)!=' ' && s1.charAt(i+1)==' ' && s1.charAt(i+2)!=' ') {
+				letter1 = s1.charAt(i+2);
+				System.out.println("s1 " + letter1);
+			}
 		}
-	}
-	
+		for(int i = 0; i < s2.length()-2; i++) {
+			if(s2.charAt(i)!=' ' && s2.charAt(i+1)==' ' && s2.charAt(i+2)!=' ') {
+				letter2 = s2.charAt(i+2);
+				System.out.println("s2 " + letter2);
+			}
+		}
+		for(int i = 0; i < s3.length()-2; i++) {
+			if(s3.charAt(i)!=' ' && s3.charAt(i+1)==' ' && s3.charAt(i+2)!=' ') {
+				letter3 = s3.charAt(i+2);
+				System.out.println("s3 "  + letter3);
+			}
+		}
 		
+		String letter = Character.toString(letter1);
+		String letterr = Character.toString(letter2);
+		String letterrr = Character.toString(letter3);
+		String letters[] = new String[3];
+		letters[0] = s1;
+		letters[1] = s2;
+		letters[2] = s3;
+		String ret = "";
+		int let = letter.compareTo(letterr);
+		int lett = letter.compareTo(letterrr);
+		System.out.println(letters[lett].trim());
 		
-		
-		
-	
-	//	for(int i = 0; i <= s1.length(); i++) {
-	//		if(i<=s1.length() && s1.charAt(i+1)!=space){
-	//			s1.replace(" ", "");
-	//		}
-	//	}
-	//	for(int i = 0; i <= s2.length(); i++) {
-	//		if(i<=s2.length() && s2.charAt(i+1)!=space){
-	//			s2.replace(" ", "");
-	//		}
-	//	}
-	//	for(int i = 0; i <= s3.length(); i++) {
-	//		if(i<=s3.length() && s3.charAt(i+1)!=space){
-	//			s3.replace(" ", "");
-	//		}
-	//	}
-	//	System.out.println(s1);
-	//	System.out.println(s2);
-	//	System.out.println(s3);
-		return null;
+		return letters[lett].trim();
 	}
 	
 	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
 		char[] str = s.toCharArray();
-		
+		int num = 0; 
 		for(int i = 0; i < s.length(); i++) {
-			str[i] = s.charAt(i);
-		}
-		for(int i = 0; i < s.length(); i++) {
-			if(str[i].isDigit()) {
-				int num = 0; 
-				num += s.charAt(i);
+			if(Character.isDigit(s.charAt(i))==true) {
+				System.out.println(s.charAt(i));
+				num += str[i];
 			}
 		}
+		System.out.println("numeral sum = " + num);
+		return num;
 		
-		return s.length();
+		
 	}
 	
 	
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
-		return 0;
+		int ret = 0;
+		for(int i = 0; i < s.length()-2; i++) {
+			if(s.charAt(i)==substring.charAt(0)) {
+				if(s.charAt(i+1)==substring.charAt(1)) {
+					if(s.charAt(i+2)==substring.charAt(2)) {
+						ret++;
+					}
+				}
+			}
+		}
+						
+		return ret;
 	}
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-		
+
 		return null;
 	}
 
