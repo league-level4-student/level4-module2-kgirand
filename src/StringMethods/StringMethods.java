@@ -90,29 +90,29 @@ public class StringMethods {
 		}
 		
 		String letter = Character.toString(letter1);
+		
 		String letterr = Character.toString(letter2);
 		String letterrr = Character.toString(letter3);
-		String letters[] = new String[3];
-		letters[0] = s1;
-		letters[1] = s2;
-		letters[2] = s3;
-		String ret = "";
-		int let = letter.compareTo(letterr);
-		int lett = letter.compareTo(letterrr);
-		System.out.println(letters[lett].trim());
 		
-		return letters[lett].trim();
+		if(letter.compareTo(letterr) < 0 && letter.compareTo(letterrr) < 0) {
+			return s1.trim();
+		}else if(letterr.compareTo(letter) < 0 && letterr.compareTo(letterrr) < 0 ){
+			return s2.trim();
+		}else if(letterrr.compareTo(letter) < 0 && letterrr.compareTo(letterr) < 0){
+			return s3.trim();
+		}
+		return "";
 	}
 	
 	
 	// Return the sum of all numerical digits in the String
 	public static int numeralSum(String s) {
-		char[] str = s.toCharArray();
 		int num = 0; 
 		for(int i = 0; i < s.length(); i++) {
-			if(Character.isDigit(s.charAt(i))==true) {
-				System.out.println(s.charAt(i));
-				num += str[i];
+			if(Character.isDigit(s.charAt(i))) {
+				int j = Integer.parseInt(s.charAt(i)+"");
+				num += j;
+				System.out.println(num);
 			}
 		}
 		System.out.println("numeral sum = " + num);
@@ -125,12 +125,20 @@ public class StringMethods {
 	// Return the number of times String substring appears in String s
 	public static int substringCount(String s, String substring) {
 		int ret = 0;
-		for(int i = 0; i < s.length()-2; i++) {
-			if(s.charAt(i)==substring.charAt(0)) {
-				if(s.charAt(i+1)==substring.charAt(1)) {
-					if(s.charAt(i+2)==substring.charAt(2)) {
-						ret++;
+		if(substring.length()>2) {
+			for(int i = 0; i < s.length()-2; i++) {
+				if(s.charAt(i)==substring.charAt(0)) {
+					if(s.charAt(i+1)==substring.charAt(1)) {
+						if(s.charAt(i+2)==substring.charAt(2)) {
+							ret++;
+						}
 					}
+				}
+			}
+		}else {
+			for(int i = 0; i < s.length(); i++) {
+				if(s.charAt(i)==substring.charAt(0)) {	
+					ret ++;
 				}
 			}
 		}
@@ -146,7 +154,7 @@ public class StringMethods {
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-		
+
 		return null;
 	}
 
