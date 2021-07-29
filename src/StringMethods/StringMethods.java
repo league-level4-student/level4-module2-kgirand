@@ -148,13 +148,13 @@ public class StringMethods {
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-
+		String[] array = s.split("\\s");
 		return null;
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
-
+		
 		return null;
 	}
 
@@ -162,7 +162,14 @@ public class StringMethods {
 	// Return the number of words in String s that end with String substring
 	// You can assume there are no punctuation marks between words
 	public static int wordsEndsWithSubstring(String s, String substring) {
-		return 0;
+	int num = 0;
+	String[] words = s.split("\\s");
+	for(int i = 0; i < words.length; i++) {
+		if(words[i].endsWith(substring)) {
+			num++;
+		}
+	}
+	return num;
 	}
 	
 
@@ -170,7 +177,18 @@ public class StringMethods {
 	// of String substring and the final occurrence
 	// You can assume that substring will appear at least twice
 	public static int distance(String s, String substring) {
-		return 0;
+		int distance = 0;
+		int last = s.length() - substring.length();
+		System.out.println("last = " + last);
+		int first = 0;
+		for(int i = 0; i < s.length(); i++) {
+				if(first == 0 && s.charAt(i) == substring.charAt(0)) {
+					first = i+substring.length(); 
+				}	
+		}
+		System.out.println("first = " + first);
+		distance = last - first;
+		return distance;
 	}
 
 
@@ -178,6 +196,10 @@ public class StringMethods {
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
+		int d = (s.length()/2)*10;
+		Integer.toString(d);
+		
+		
 		return true;
 	}
 	
