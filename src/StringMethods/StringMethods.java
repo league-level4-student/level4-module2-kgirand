@@ -148,14 +148,19 @@ public class StringMethods {
 
 	// Call Utitilities.encrypt to encrypt String s
 	public static String encrypt(String s, char key) {
-		String[] array = s.split("\\s");
-		return null;
+		byte[] string = s.getBytes();
+		byte[] keyy = Character.toString(key).getBytes();
+		byte charr = keyy[0];
+		return Utilities.encrypt(s.getBytes(), charr);
+		
 	}
 
 	// Call Utilities.decrypt to decrypt the cyphertext
 	public static String decrypt(String s, char key) {
+		byte[] charr = Character.toString(key).getBytes();
+		byte keyy = charr[0];
+		return Utilities.decrypt(s, keyy);
 		
-		return null;
 	}
 
 
@@ -196,11 +201,28 @@ public class StringMethods {
 	// palindromes are words or phrases are read the same forward as backward.
 	// HINT: ignore/remove all punctuation and spaces in the String
 	public static boolean palindrome(String s) {
-		int d = (s.length()/2)*10;
-		Integer.toString(d);
-		
-		
-		return true;
+		String ss = s.toLowerCase();
+		System.out.println(ss);
+		String string = "";
+		String backwards = "";
+		char space = ' ';
+		for(int i = 0; i < ss.length(); i++) {
+			if(Character.isLetter(ss.charAt(i))) {
+				string += ss.charAt(i);
+			}
+		}
+		for(int i = ss.length()-1; i >= 0; i--) {
+			if(Character.isLetter(ss.charAt(i))) {
+				backwards += ss.charAt(i);
+			}
+			
+		}
+		System.out.println(backwards + " " + string);
+		if(string.equals(backwards)) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 }
