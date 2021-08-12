@@ -209,6 +209,7 @@ public class StringMethods {
 		for(int i = 0; i < ss.length(); i++) {
 			if(Character.isLetter(ss.charAt(i))) {
 				string += ss.charAt(i);
+				
 			}
 		}
 		for(int i = ss.length()-1; i >= 0; i--) {
